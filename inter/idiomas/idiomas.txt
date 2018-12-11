@@ -1,0 +1,16 @@
+2
+es
+3
+Bienvenido al Gestor de Productos
+Esto es Colombia
+:v
+1
+./imagenes/imagen.jpg
+pol
+3
+Witamy w Menedzerze produktów
+nie movie po polsky
+piekzna
+1
+./imagenes/imagen2.jpg
+
