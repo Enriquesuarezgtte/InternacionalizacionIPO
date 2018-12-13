@@ -1,16 +1,33 @@
-2
-es
 3
+es
+6
 Bienvenido al Gestor de Productos
-Esto es Colombia
-:v
+Elige un idioma: 
+Archivo
+Editar
+Configuracion
+Idioma
 1
 ./imagenes/imagen.jpg
-pol
-3
+po
+6
 Witamy w Menedzerze produktów
-nie movie po polsky
-piekzna
+Wybierz język:
+Plik
+Edycja
+Ustawienia
+Język
 1
 ./imagenes/imagen2.jpg
+en
+6
+Welcome !
+Choose a language:
+File
+Edit
+Settings
+Language
+1
+./imagenes/imagen2.jpg
+
 
