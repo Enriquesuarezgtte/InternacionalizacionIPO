@@ -1,32 +1,53 @@
 3
 es
-6
+13
 Bienvenido al Gestor de Productos
 Elige un idioma: 
 Archivo
 Editar
 Configuracion
 Idioma
+Agregar Canción
+_
+Nombre
+Cantante
+Album
+Año
+Aceptar
 1
 ./imagenes/imagen.jpg
 po
-6
+13
 Witamy w Menedzerze produktów
 Wybierz język:
 Plik
 Edycja
 Ustawienia
 Język
+_
+_
+_
+_
+_
+_
+_
 1
 ./imagenes/imagen2.jpg
 en
-6
+13
 Welcome !
 Choose a language:
 File
 Edit
 Settings
 Language
+Add song
+_
+Name
+_
+_
+_
+_
 1
 ./imagenes/imagen2.jpg
 
