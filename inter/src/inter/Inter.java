@@ -5,16 +5,21 @@
  */
 package inter;
 
+import Excepciones.CamposInvalidos;
+import Excepciones.CamposVaciosException;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.util.converter.LocalDateTimeStringConverter;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
@@ -31,20 +36,25 @@ public class Inter {
     FileReader fr = null;
     BufferedReader bf = null;
     TreeMap<String, Idioma> tr = null;
-    ArrayList<String> nombreIdiomas=null;
+    ArrayList<String> nombreIdiomas = null;
+    ArrayList<Musica> canciones = null;
     int contadorTexto;
     int contadorImagenes;
+    String idiomaActual;
+    Musica musica = null;
 
-    public Inter() {
+    public Inter() throws Exception {
         archivo = new File("./idiomas/idiomas.txt");
         try {
             fr = new FileReader(archivo);
             bf = new BufferedReader(fr);
             tr = new TreeMap<>();
             nombreIdiomas = new ArrayList<>();
-             iniciar();
+            canciones = new ArrayList<>();
+            String idiomaActual = "es";
+            iniciar();
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new Exception();
         } finally {
             try {
                 if (null != fr) {
@@ -55,17 +65,14 @@ public class Inter {
                 ex2.printStackTrace();
             }
         }
-        
-        
 
     }
-    public String obtenerLinea(String idioma,int numero){
-        String linea="";
-        linea=tr.get(idioma).getTexto().get(numero);
+
+    public String obtenerLinea(String idioma, int numero) {
+        String linea = "";
+        linea = tr.get(idioma).getTexto().get(numero);
         return linea;
     }
-    
-    
 
     public void iniciar() throws IOException {
         // TODO code application logic here
@@ -74,9 +81,8 @@ public class Inter {
         for (int i = 0; i < idioma; i++) {
             Idioma id = new Idioma();
 
-            
             id.setNombre(bf.readLine());
-            
+
             contadorTexto = Integer.parseInt(bf.readLine());
             for (int j = 0; j < contadorTexto; j++) {
                 id.texto.add(bf.readLine());
@@ -106,6 +112,22 @@ public class Inter {
 
     public void setFr(FileReader fr) {
         this.fr = fr;
+    }
+
+    public ArrayList<Musica> getCanciones() {
+        return canciones;
+    }
+
+    public void setCanciones(ArrayList<Musica> canciones) {
+        this.canciones = canciones;
+    }
+
+    public String getIdiomaActual() {
+        return idiomaActual;
+    }
+
+    public void setIdiomaActual(String idiomaActual) {
+        this.idiomaActual = idiomaActual;
     }
 
     public BufferedReader getBf() {
@@ -150,6 +172,26 @@ public class Inter {
 
     public void setNombreIdiomas(ArrayList<String> nombreIdiomas) {
         this.nombreIdiomas = nombreIdiomas;
+    }
+
+    public void crearMusica(String nombre, String cantante, String album, String fecha) throws CamposVaciosException, CamposInvalidos {
+        if (!nombre.equals("") && !cantante.equals("") && !album.equals("") && !fecha.equals("")) {
+            LocalDate ld = LocalDate.now();
+
+            try {
+                Integer anio = Integer.parseInt(fecha);
+                if (ld.getYear() >= Integer.parseInt(fecha)) {
+                    Musica musica = new Musica(cantante, nombre, fecha, album);
+                } else {
+                    throw new CamposInvalidos();
+                }
+            } catch (NumberFormatException exc) {
+                throw new CamposInvalidos();
+            }
+        } else {
+            throw new CamposVaciosException();
+        }
+
     }
 
 }

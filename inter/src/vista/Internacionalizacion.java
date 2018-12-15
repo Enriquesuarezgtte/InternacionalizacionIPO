@@ -5,9 +5,15 @@
  */
 package vista;
 
+import Excepciones.CamposInvalidos;
+import Excepciones.CamposVaciosException;
 import inter.Inter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JPopupMenu;
 
 /**
  *
@@ -75,6 +81,7 @@ public class Internacionalizacion extends javax.swing.JFrame {
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("jLabel1");
+        jLabel1.setRequestFocusEnabled(false);
 
         jLabel2.setText("2");
         jLabel2.setVisible(false);
@@ -99,6 +106,11 @@ public class Internacionalizacion extends javax.swing.JFrame {
         jLabel6.setVisible(false);
 
         jButton2.setVisible(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clickAcceptar(evt);
+            }
+        });
 
         jTextField1.setToolTipText("");
         jTextField1.setVisible(false);
@@ -265,9 +277,21 @@ public class Internacionalizacion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ClickIdioma(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ClickIdioma
-        // TODO add your handling code here:
-
-
+        try {
+            try {
+                // TODO add your handling code here:
+                inter.crearMusica(jTextField1.getText(), jTextField2.getText(), jTextField3.getText(),
+                        jTextField4.getText());
+                jTextField1.setText("");
+                jTextField2.setText("");
+                jTextField3.setText("");
+                jTextField4.setText("");
+            } catch (CamposInvalidos ex) {
+                JOptionPane.showMessageDialog(jPanel1, inter.obtenerLinea(inter.getIdiomaActual(), 14));
+            }
+        } catch (CamposVaciosException ex) {
+            JOptionPane.showMessageDialog(jPanel1, inter.obtenerLinea(inter.getIdiomaActual(), 13));
+        }
     }//GEN-LAST:event_ClickIdioma
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -276,6 +300,7 @@ public class Internacionalizacion extends javax.swing.JFrame {
         System.out.println();
         String idioma = "";
         idioma = jComboBox1.getSelectedItem().toString();
+        inter.setIdiomaActual(idioma);
         jLabel1.setText(inter.obtenerLinea(idioma, 0));
         jLabel2.setText(inter.obtenerLinea(idioma, 1));
         jMenu1.setText(inter.obtenerLinea(idioma, 2));
@@ -288,7 +313,7 @@ public class Internacionalizacion extends javax.swing.JFrame {
         jLabel5.setText(inter.obtenerLinea(idioma, 10));
         jLabel6.setText(inter.obtenerLinea(idioma, 11));
         jButton2.setText(inter.obtenerLinea(idioma, 12));
-        
+
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -300,7 +325,7 @@ public class Internacionalizacion extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-                jLayeredPane1.setVisible(true);
+        jLayeredPane1.setVisible(true);
         jLabel2.setVisible(false);
         jComboBox1.setVisible(false);
         jLabel3.setVisible(true);
@@ -313,6 +338,25 @@ public class Internacionalizacion extends javax.swing.JFrame {
         jTextField3.setVisible(true);
         jTextField4.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void clickAcceptar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickAcceptar
+        // TODO add your handling code here:
+        try {
+            try {
+                // TODO add your handling code here:
+                inter.crearMusica(jTextField1.getText(), jTextField2.getText(), jTextField3.getText(),jTextField4.getText());
+                jTextField1.setText("");
+                jTextField2.setText("");
+                jTextField3.setText("");
+                jTextField4.setText("");
+                JOptionPane.showMessageDialog(jPanel1, inter.obtenerLinea(inter.getIdiomaActual(), 14));
+            } catch (CamposInvalidos ex) {
+                JOptionPane.showMessageDialog(jPanel1, inter.obtenerLinea(inter.getIdiomaActual(), 15));
+            }
+        } catch (CamposVaciosException ex) {
+            JOptionPane.showMessageDialog(jPanel1, inter.obtenerLinea(inter.getIdiomaActual(), 13));
+        }
+    }//GEN-LAST:event_clickAcceptar
 
     /**
      * @param args the command line arguments
@@ -346,12 +390,15 @@ public class Internacionalizacion extends javax.swing.JFrame {
             public void run() {
                 Internacionalizacion in = new Internacionalizacion();
                 in.setVisible(true);
-                in.jLabel1.setVisible(false);
-
-                inter = new Inter();
-                in.jLabel1.setText(inter.obtenerLinea("po", 0));
-                for (int i = 0; i < inter.getNombreIdiomas().size(); i++) {
-                    in.jComboBox1.addItem(inter.getNombreIdiomas().get(i));
+                try {
+                    inter = new Inter();
+                    in.jLabel1.setText(inter.obtenerLinea("po", 0));
+                    for (int i = 0; i < inter.getNombreIdiomas().size(); i++) {
+                        in.jComboBox1.addItem(inter.getNombreIdiomas().get(i));
+                    }
+                } catch (Exception ex) {
+                    // JPopupMenu jp = new JPopupMenu(inter.obtenerLinea(inter.getIdiomaActual(), 13
+                    JOptionPane.showMessageDialog(in.jFrame1, "Error al cargar los idiomas");
                 }
 
             }

@@ -1,6 +1,6 @@
 3
 es
-13
+16
 Bienvenido al Gestor de Productos
 Elige un idioma: 
 Archivo
@@ -14,10 +14,13 @@ Cantante
 Album
 Año
 Aceptar
+Todos los campos son obligatorios. Intente de nuevo.
+¡Registro creado exitosamente!
+El año ingresado es inválido. Intente de nuevo.
 1
 ./imagenes/imagen.jpg
 po
-13
+16
 Witamy w Menedzerze produktów
 Wybierz język:
 Plik
@@ -31,10 +34,13 @@ _
 _
 _
 _
+_
+_
+_
 1
 ./imagenes/imagen2.jpg
 en
-13
+16
 Welcome !
 Choose a language:
 File
@@ -47,7 +53,10 @@ Name
 _
 _
 _
-_
+Accept
+All fields are requiered. Try again.
+¡The song was added succesfully!
+Field "Year" is invalid. Try again.
 1
 ./imagenes/imagen2.jpg
 
