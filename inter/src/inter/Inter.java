@@ -70,19 +70,19 @@ public class Inter {
     public void iniciar() throws IOException {
         // TODO code application logic here
 
-        int idioma = Integer.parseInt(bf.readLine());
+        int idioma = Integer.parseInt(bf.readLine().trim());
         for (int i = 0; i < idioma; i++) {
             Idioma id = new Idioma();
 
-            id.setNombre(bf.readLine());
+            id.setNombre(bf.readLine().trim());
 
-            contadorTexto = Integer.parseInt(bf.readLine());
+            contadorTexto = Integer.parseInt(bf.readLine().trim());
             for (int j = 0; j < contadorTexto; j++) {
-                id.texto.add(bf.readLine());
+                id.texto.add(bf.readLine().trim());
             }
-            contadorImagenes = Integer.parseInt(bf.readLine());
+            contadorImagenes = Integer.parseInt(bf.readLine().trim());
             for (int j = 0; j < contadorImagenes; j++) {
-                id.imagenes.add(bf.readLine());
+                id.imagenes.add(bf.readLine().trim());
             }
             tr.put(id.getNombre(), id);
             nombreIdiomas.add(id.getNombre());

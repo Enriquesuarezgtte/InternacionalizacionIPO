@@ -428,7 +428,7 @@ public class Internacionalizacion extends javax.swing.JFrame {
         if(!jButton2.getText().equals(inter.obtenerLinea(inter.getIdiomaActual(),12))){
                 
             try {
-                inter.actualizarMusica(jTextField1.getText(), jTextField2.getText(), jTextField3.getText(),jTextField4.getText(), id+"");
+                inter.actualizarMusica(jTextField1.getText().trim(), jTextField2.getText().trim(), jTextField3.getText().trim(),jTextField4.getText().trim(), id+"");
                     jButton2.setText(inter.obtenerLinea(inter.getIdiomaActual(), 12));
 
             } catch (CamposInvalidos ex) {
@@ -446,7 +446,7 @@ public class Internacionalizacion extends javax.swing.JFrame {
         try {
             try {
                 // TODO add your handling code here:
-                inter.crearMusica(jTextField1.getText(), jTextField2.getText(), jTextField3.getText(),jTextField4.getText());
+                inter.crearMusica(jTextField1.getText().trim(), jTextField2.getText().trim(), jTextField3.getText().trim(),jTextField4.getText().trim());
                 jTextField1.setText("");
                 jTextField2.setText("");
                 jTextField3.setText("");
