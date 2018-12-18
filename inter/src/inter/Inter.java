@@ -9,12 +9,16 @@ import Excepciones.CamposInvalidos;
 import Excepciones.CamposVaciosException;
 import java.awt.List;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.TreeMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -26,7 +30,10 @@ public class Inter {
      * @param args the command line arguments
      */
     File archivo;
+    File archivo2;
+    
     FileReader fr = null;
+    FileWriter fw=null;
     BufferedReader bf = null;
     TreeMap<String, Idioma> tr = null;
     ArrayList<String> nombreIdiomas = null;
@@ -185,6 +192,26 @@ public class Inter {
         } else {
             throw new CamposVaciosException();
         }
+        
+        try {
+             archivo2=new File("./idiomas/salida.txt");
+             
+            fw = new FileWriter(archivo2);
+            BufferedWriter bw = new BufferedWriter(fw);
+            for (int i = 0; i < canciones.size(); i++) {
+                
+            bw.write("\n Nombre "+canciones.get(i).getNombre());
+            bw.write(" Cantante "+canciones.get(i).getCantante());
+            bw.write(" Fecha "+canciones.get(i).getFecha());
+            bw.write(" Album "+canciones.get(i).getAlbum()+"\n");
+            
+            }
+bw.flush();            
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Inter.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
 
     }
 
