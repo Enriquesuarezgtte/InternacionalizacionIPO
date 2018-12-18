@@ -7,21 +7,14 @@ package inter;
 
 import Excepciones.CamposInvalidos;
 import Excepciones.CamposVaciosException;
-import java.io.BufferedInputStream;
+import java.awt.List;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.TreeMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.util.converter.LocalDateTimeStringConverter;
-import javax.swing.JButton;
-import javax.swing.JFrame;
 
 /**
  *
@@ -182,6 +175,7 @@ public class Inter {
                 Integer anio = Integer.parseInt(fecha);
                 if (ld.getYear() >= Integer.parseInt(fecha)) {
                     Musica musica = new Musica(cantante, nombre, fecha, album);
+                    canciones.add(musica);
                 } else {
                     throw new CamposInvalidos();
                 }
@@ -192,6 +186,63 @@ public class Inter {
             throw new CamposVaciosException();
         }
 
+    }
+
+    public void actualizarMusica(String nombre, String cantante, String album, String fecha, String id) throws CamposInvalidos, CamposVaciosException {
+        if (!nombre.equals("") && !cantante.equals("") && !album.equals("") && !fecha.equals("")) {
+      canciones.get(Integer.parseInt(id)).setNombre(nombre);
+      canciones.get(Integer.parseInt(id)).setCantante(cantante);
+      canciones.get(Integer.parseInt(id)).setAlbum(album);
+      canciones.get(Integer.parseInt(id)).setFecha(fecha);
+        }else {
+            throw new CamposVaciosException();
+        }
+    }
+
+    
+
+    public ArrayList<String> buscarNombre(String eleccion) throws CamposInvalidos {
+        System.out.println(eleccion);
+        //Realizar el split con : y .
+        try{
+        String[] datos= eleccion.split(". ");
+        
+                String subs="";
+                boolean flag=false;
+              ArrayList<String> arr = new ArrayList<>();
+        for (int i = 0; i < datos.length; i++) {
+            System.out.println("");
+            for (int j = 0; j < datos[i].length(); j++) {
+                System.out.print(datos[i].charAt(j));
+            if(i%2!=0){
+               subs+=datos[i].charAt(j)+"";                              
+           }
+              
+                                     
+        }  arr.add(subs);
+               subs="";              
+            }
+        System.out.println("asd"+arr);
+        ArrayList<String> arr1= new ArrayList();
+        for (int i = 0; i < canciones.size(); i++) {
+            if((canciones.get(i).getNombre()).equalsIgnoreCase(arr.get(1))&&(
+                 canciones.get(i).getCantante()).equalsIgnoreCase(arr.get(3)) ){
+            arr1.add(canciones.get(i).getNombre());
+            arr1.add(canciones.get(i).getCantante());
+            arr1.add(canciones.get(i).getAlbum());
+            arr1.add(canciones.get(i).getFecha());         
+            arr1.add(i+"");
+            System.out.println("ppp"+arr1);
+            }
+             }
+        return arr1;
+        }catch(NullPointerException ex){
+            throw new CamposInvalidos();
+        }
+    }
+
+    public void eliminarMusica(String id) {
+        canciones.remove(Integer.parseInt(id));
     }
 
 }
