@@ -429,6 +429,8 @@ public class Internacionalizacion extends javax.swing.JFrame {
                 
             try {
                 inter.actualizarMusica(jTextField1.getText(), jTextField2.getText(), jTextField3.getText(),jTextField4.getText(), id+"");
+                    jButton2.setText(inter.obtenerLinea(inter.getIdiomaActual(), 12));
+
             } catch (CamposInvalidos ex) {
             JOptionPane.showMessageDialog(jPanel1, inter.obtenerLinea(inter.getIdiomaActual(), 15));         
             } catch (CamposVaciosException ex) {
@@ -439,6 +441,7 @@ public class Internacionalizacion extends javax.swing.JFrame {
                 jTextField3.setText("");
                 jTextField4.setText("");
                 JOptionPane.showMessageDialog(jPanel1, inter.obtenerLinea(inter.getIdiomaActual(), 17));
+                
         }else{
         try {
             try {
