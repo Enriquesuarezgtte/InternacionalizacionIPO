@@ -31,9 +31,9 @@ public class Inter {
      */
     File archivo;
     File archivo2;
-    
+
     FileReader fr = null;
-    FileWriter fw=null;
+    FileWriter fw = null;
     BufferedReader bf = null;
     TreeMap<String, Idioma> tr = null;
     ArrayList<String> nombreIdiomas = null;
@@ -192,78 +192,74 @@ public class Inter {
         } else {
             throw new CamposVaciosException();
         }
-        
+
         try {
-             archivo2=new File("./idiomas/salida.txt");
-             
+            archivo2 = new File("./idiomas/salida.txt");
+
             fw = new FileWriter(archivo2);
             BufferedWriter bw = new BufferedWriter(fw);
             for (int i = 0; i < canciones.size(); i++) {
-                
-            bw.write("\n Nombre "+canciones.get(i).getNombre());
-            bw.write(" Cantante "+canciones.get(i).getCantante());
-            bw.write(" Fecha "+canciones.get(i).getFecha());
-            bw.write(" Album "+canciones.get(i).getAlbum()+"\n");
-            
+
+                bw.write("\n Nombre " + canciones.get(i).getNombre());
+                bw.write(" Cantante " + canciones.get(i).getCantante());
+                bw.write(" Fecha " + canciones.get(i).getFecha());
+                bw.write(" Album " + canciones.get(i).getAlbum() + "\n");
+
             }
-bw.flush();            
-            
+            bw.flush();
+
         } catch (IOException ex) {
             Logger.getLogger(Inter.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
 
     }
 
     public void actualizarMusica(String nombre, String cantante, String album, String fecha, String id) throws CamposInvalidos, CamposVaciosException {
         if (!nombre.equals("") && !cantante.equals("") && !album.equals("") && !fecha.equals("")) {
-      canciones.get(Integer.parseInt(id)).setNombre(nombre);
-      canciones.get(Integer.parseInt(id)).setCantante(cantante);
-      canciones.get(Integer.parseInt(id)).setAlbum(album);
-      canciones.get(Integer.parseInt(id)).setFecha(fecha);
-        }else {
+            canciones.get(Integer.parseInt(id)).setNombre(nombre);
+            canciones.get(Integer.parseInt(id)).setCantante(cantante);
+            canciones.get(Integer.parseInt(id)).setAlbum(album);
+            canciones.get(Integer.parseInt(id)).setFecha(fecha);
+        } else {
             throw new CamposVaciosException();
         }
     }
 
-    
-
     public ArrayList<String> buscarNombre(String eleccion) throws CamposInvalidos {
         System.out.println(eleccion);
         //Realizar el split con : y .
-        try{
-        String[] datos= eleccion.split(". ");
-        
-                String subs="";
-                boolean flag=false;
-              ArrayList<String> arr = new ArrayList<>();
-        for (int i = 0; i < datos.length; i++) {
-            System.out.println("");
-            for (int j = 0; j < datos[i].length(); j++) {
-                System.out.print(datos[i].charAt(j));
-            if(i%2!=0){
-               subs+=datos[i].charAt(j)+"";                              
-           }
-              
-                                     
-        }  arr.add(subs);
-               subs="";              
+        try {
+            String[] datos = eleccion.split(". ");
+
+            String subs = "";
+            boolean flag = false;
+            ArrayList<String> arr = new ArrayList<>();
+            for (int i = 0; i < datos.length; i++) {
+                System.out.println("");
+                for (int j = 0; j < datos[i].length(); j++) {
+                    System.out.print(datos[i].charAt(j));
+                    if (i % 2 != 0) {
+                        subs += datos[i].charAt(j) + "";
+                    }
+
+                }
+                arr.add(subs);
+                subs = "";
             }
-        System.out.println("asd"+arr);
-        ArrayList<String> arr1= new ArrayList();
-        for (int i = 0; i < canciones.size(); i++) {
-            if((canciones.get(i).getNombre()).equalsIgnoreCase(arr.get(1))&&(
-                 canciones.get(i).getCantante()).equalsIgnoreCase(arr.get(3)) ){
-            arr1.add(canciones.get(i).getNombre());
-            arr1.add(canciones.get(i).getCantante());
-            arr1.add(canciones.get(i).getAlbum());
-            arr1.add(canciones.get(i).getFecha());         
-            arr1.add(i+"");
-            System.out.println("ppp"+arr1);
+            System.out.println("asd" + arr);
+            ArrayList<String> arr1 = new ArrayList();
+            for (int i = 0; i < canciones.size(); i++) {
+                if ((canciones.get(i).getNombre()).equalsIgnoreCase(arr.get(1)) && (canciones.get(i).getCantante()).equalsIgnoreCase(arr.get(3))) {
+                    arr1.add(canciones.get(i).getNombre());
+                    arr1.add(canciones.get(i).getCantante());
+                    arr1.add(canciones.get(i).getAlbum());
+                    arr1.add(canciones.get(i).getFecha());
+                    arr1.add(i + "");
+                    System.out.println("ppp" + arr1);
+                }
             }
-             }
-        return arr1;
-        }catch(NullPointerException ex){
+            return arr1;
+        } catch (NullPointerException ex) {
             throw new CamposInvalidos();
         }
     }

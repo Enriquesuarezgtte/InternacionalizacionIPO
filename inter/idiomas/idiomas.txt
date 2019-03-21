@@ -1,4 +1,160 @@
-3
+9
+es
+22
+Bienvenido al Gestor de Canciones
+Elige un idioma: 
+Archivo
+Editar
+Configuracion
+Idioma
+Agregar Canción
+Listar canciones
+Nombre
+Cantante
+Album
+Año
+Aceptar
+Todos los campos son obligatorios. Intente de nuevo.
+¡Registro creado exitosamente!
+El año ingresado es inválido. Intente de nuevo.
+Cancion no seleccionada.
+Cancion modificada correctamente.
+Modificar
+Eliminar
+Canciones disponibles:
+Cancion eliminada correctamente.
+1
+./imagenes/imagen.jpg
+po
+22
+Witamy w menadżerze piosenek!
+Wybierz język:
+Plik
+Edytować
+Ustawienia
+Język
+Dodaj piosenkę
+Pokaż utwory
+Imię
+Piosenkarz
+Album
+Rok
+Zaakceptować
+Wszystkie pola są wymagane. Spróbuj ponownie.
+¡Piosenka została dodana z powodzeniem!
+Pole "Rok" jest nieprawidłowe. Spróbuj ponownie.
+Utwór nie został wybrany
+Utwór zmodyfikowany poprawnie.
+Modyfikować
+Usunąć
+Dostępne utwory:
+Piosenka została usunięta poprawnie.
+1
+./imagenes/imagen2.jpg
+en
+22
+Welcome to the song manager!
+Choose a language:
+File
+Edit
+Settings
+Language
+Add song
+Show songs
+Name
+Singer
+Album
+Year
+Accept
+All fields are requiered. Try again.
+¡The song was added succesfully!
+Field "Year" is invalid. Try again.
+Song not selected
+Song modified correctly.
+Modify
+Remove
+Available songs:
+Song deleted correctly.
+1
+./imagenes/imagen2.jpg
+es
+22
+Bienvenido al Gestor de Canciones
+Elige un idioma: 
+Archivo
+Editar
+Configuracion
+Idioma
+Agregar Canción
+Listar canciones
+Nombre
+Cantante
+Album
+Año
+Aceptar
+Todos los campos son obligatorios. Intente de nuevo.
+¡Registro creado exitosamente!
+El año ingresado es inválido. Intente de nuevo.
+Cancion no seleccionada.
+Cancion modificada correctamente.
+Modificar
+Eliminar
+Canciones disponibles:
+Cancion eliminada correctamente.
+1
+./imagenes/imagen.jpg
+po
+22
+Witamy w menadżerze piosenek!
+Wybierz język:
+Plik
+Edytować
+Ustawienia
+Język
+Dodaj piosenkę
+Pokaż utwory
+Imię
+Piosenkarz
+Album
+Rok
+Zaakceptować
+Wszystkie pola są wymagane. Spróbuj ponownie.
+¡Piosenka została dodana z powodzeniem!
+Pole "Rok" jest nieprawidłowe. Spróbuj ponownie.
+Utwór nie został wybrany
+Utwór zmodyfikowany poprawnie.
+Modyfikować
+Usunąć
+Dostępne utwory:
+Piosenka została usunięta poprawnie.
+1
+./imagenes/imagen2.jpg
+en
+22
+Welcome to the song manager!
+Choose a language:
+File
+Edit
+Settings
+Language
+Add song
+Show songs
+Name
+Singer
+Album
+Year
+Accept
+All fields are requiered. Try again.
+¡The song was added succesfully!
+Field "Year" is invalid. Try again.
+Song not selected
+Song modified correctly.
+Modify
+Remove
+Available songs:
+Song deleted correctly.
+1
+./imagenes/imagen2.jpg
 es
 22
 Bienvenido al Gestor de Canciones

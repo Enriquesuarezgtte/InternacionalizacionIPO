@@ -392,11 +392,9 @@ public class Internacionalizacion extends javax.swing.JFrame {
         jLabel6.setText(inter.obtenerLinea(idioma, 11));
         jLabel7.setText(inter.obtenerLinea(idioma, 20));
         jButton2.setText(inter.obtenerLinea(idioma, 12));
-        
-                jButton3.setText(inter.obtenerLinea(idioma, 18));
-        jButton4.setText(inter.obtenerLinea(idioma, 19));
 
-        
+        jButton3.setText(inter.obtenerLinea(idioma, 18));
+        jButton4.setText(inter.obtenerLinea(idioma, 19));
 
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
@@ -425,53 +423,53 @@ public class Internacionalizacion extends javax.swing.JFrame {
 
     private void clickAcceptar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickAcceptar
         // TODO add your handling code here:
-        if(!jButton2.getText().equals(inter.obtenerLinea(inter.getIdiomaActual(),12))){
-                
+        if (!jButton2.getText().equals(inter.obtenerLinea(inter.getIdiomaActual(), 12))) {
+
             try {
-                inter.actualizarMusica(jTextField1.getText().trim(), jTextField2.getText().trim(), jTextField3.getText().trim(),jTextField4.getText().trim(), id+"");
-                    jButton2.setText(inter.obtenerLinea(inter.getIdiomaActual(), 12));
+                inter.actualizarMusica(jTextField1.getText().trim(), jTextField2.getText().trim(), jTextField3.getText().trim(), jTextField4.getText().trim(), id + "");
+                jButton2.setText(inter.obtenerLinea(inter.getIdiomaActual(), 12));
 
             } catch (CamposInvalidos ex) {
-            JOptionPane.showMessageDialog(jPanel1, inter.obtenerLinea(inter.getIdiomaActual(), 15));         
-            } catch (CamposVaciosException ex) {
-            JOptionPane.showMessageDialog(jPanel1, inter.obtenerLinea(inter.getIdiomaActual(), 13));
-            }
-                jTextField1.setText("");
-                jTextField2.setText("");
-                jTextField3.setText("");
-                jTextField4.setText("");
-                JOptionPane.showMessageDialog(jPanel1, inter.obtenerLinea(inter.getIdiomaActual(), 17));
-                
-        }else{
-        try {
-            try {
-                // TODO add your handling code here:
-                inter.crearMusica(jTextField1.getText().trim(), jTextField2.getText().trim(), jTextField3.getText().trim(),jTextField4.getText().trim());
-                jTextField1.setText("");
-                jTextField2.setText("");
-                jTextField3.setText("");
-                jTextField4.setText("");
-                JOptionPane.showMessageDialog(jPanel1, inter.obtenerLinea(inter.getIdiomaActual(), 14));
-            } catch (CamposInvalidos ex) {
                 JOptionPane.showMessageDialog(jPanel1, inter.obtenerLinea(inter.getIdiomaActual(), 15));
+            } catch (CamposVaciosException ex) {
+                JOptionPane.showMessageDialog(jPanel1, inter.obtenerLinea(inter.getIdiomaActual(), 13));
             }
-        } catch (CamposVaciosException ex) {
-            JOptionPane.showMessageDialog(jPanel1, inter.obtenerLinea(inter.getIdiomaActual(), 13));
-        }
+            jTextField1.setText("");
+            jTextField2.setText("");
+            jTextField3.setText("");
+            jTextField4.setText("");
+            JOptionPane.showMessageDialog(jPanel1, inter.obtenerLinea(inter.getIdiomaActual(), 17));
+
+        } else {
+            try {
+                try {
+                    // TODO add your handling code here:
+                    inter.crearMusica(jTextField1.getText().trim(), jTextField2.getText().trim(), jTextField3.getText().trim(), jTextField4.getText().trim());
+                    jTextField1.setText("");
+                    jTextField2.setText("");
+                    jTextField3.setText("");
+                    jTextField4.setText("");
+                    JOptionPane.showMessageDialog(jPanel1, inter.obtenerLinea(inter.getIdiomaActual(), 14));
+                } catch (CamposInvalidos ex) {
+                    JOptionPane.showMessageDialog(jPanel1, inter.obtenerLinea(inter.getIdiomaActual(), 15));
+                }
+            } catch (CamposVaciosException ex ) {
+                JOptionPane.showMessageDialog(jPanel1, inter.obtenerLinea(inter.getIdiomaActual(), 13));
+            }
         }
     }//GEN-LAST:event_clickAcceptar
 
     private void mostrarCanciones(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarCanciones
         // TODO add your handling code here:
-      jFrame3.setVisible(true);
+        jFrame3.setVisible(true);
         DefaultListModel dlm = new DefaultListModel();
         String nombres;
-        for (int i = 0; i <inter.getCanciones().size(); i++) {
-            nombres=jLabel3.getText()+": "+inter.getCanciones().get(i).getNombre()+". "
-                    +jLabel4.getText()+": "+inter.getCanciones().get(i).getCantante()+". "
-                    +jLabel5.getText()+": "+inter.getCanciones().get(i).getAlbum()+". "
-                    +jLabel6.getText()+": "+inter.getCanciones().get(i).getFecha()+".";
-            
+        for (int i = 0; i < inter.getCanciones().size(); i++) {
+            nombres = jLabel3.getText() + ": " + inter.getCanciones().get(i).getNombre() + ". "
+                    + jLabel4.getText() + ": " + inter.getCanciones().get(i).getCantante() + ". "
+                    + jLabel5.getText() + ": " + inter.getCanciones().get(i).getAlbum() + ". "
+                    + jLabel6.getText() + ": " + inter.getCanciones().get(i).getFecha() + ".";
+
             dlm.add(i, nombres);
         }
         jList1.setModel(dlm);
@@ -492,25 +490,25 @@ public class Internacionalizacion extends javax.swing.JFrame {
         jTextField3.setVisible(true);
         jTextField4.setVisible(true);
         jFrame3.setVisible(false);
-            // TODO add your handling code here:
-            String eleccion = jList1.getSelectedValue();
-            ArrayList<String> ar;
+        // TODO add your handling code here:
+        String eleccion = jList1.getSelectedValue();
+        ArrayList<String> ar;
         try {
             ar = inter.buscarNombre(eleccion);
-        
+
             System.out.println(ar);
-            if(ar.size()>0){
+            if (ar.size() > 0) {
                 jTextField1.setText(ar.get(0));
                 jTextField2.setText(ar.get(1));
                 jTextField3.setText(ar.get(2));
                 jTextField4.setText(ar.get(3));
-               jButton2.setText(inter.obtenerLinea(inter.getIdiomaActual(), 18));
-              id=ar.get(4);
+                jButton2.setText(inter.obtenerLinea(inter.getIdiomaActual(), 18));
+                id = ar.get(4);
             }
-            } catch (CamposInvalidos ex) {
-                JOptionPane.showMessageDialog(jPanel1, inter.obtenerLinea(inter.getIdiomaActual(), 16));
+        } catch (CamposInvalidos ex) {
+            JOptionPane.showMessageDialog(jPanel1, inter.obtenerLinea(inter.getIdiomaActual(), 16));
         }
-        
+
     }//GEN-LAST:event_modificarElemento
 
     private void eliminarCancion(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarCancion
@@ -528,26 +526,25 @@ public class Internacionalizacion extends javax.swing.JFrame {
         jTextField3.setVisible(true);
         jTextField4.setVisible(true);
         jFrame3.setVisible(false);
-            // TODO add your handling code here:
-            String eleccion = jList1.getSelectedValue();
-            ArrayList<String> ar;
+        // TODO add your handling code here:
+        String eleccion = jList1.getSelectedValue();
+        ArrayList<String> ar;
         try {
             ar = inter.buscarNombre(eleccion);
-        
+
             System.out.println(ar);
-            if(ar.size()>0){
-                 id=ar.get(4);
+            if (ar.size() > 0) {
+                id = ar.get(4);
                 inter.eliminarMusica(id);
-                             JOptionPane.showMessageDialog(jPanel1, inter.obtenerLinea(inter.getIdiomaActual(), 21));
+                JOptionPane.showMessageDialog(jPanel1, inter.obtenerLinea(inter.getIdiomaActual(), 21));
 
             }
-            } catch (CamposInvalidos ex) {
-                JOptionPane.showMessageDialog(jPanel1, inter.obtenerLinea(inter.getIdiomaActual(), 16));
+        } catch (CamposInvalidos ex) {
+            JOptionPane.showMessageDialog(jPanel1, inter.obtenerLinea(inter.getIdiomaActual(), 16));
         }
-        
+
     }//GEN-LAST:event_eliminarCancion
-    
-    
+
     /**
      * @param args the command line arguments
      */
